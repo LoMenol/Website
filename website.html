@@ -7,7 +7,6 @@
     <meta name="description" content="Lingua & Culture — изучение иностранных языков через культуру, традиции и повседневную жизнь.">
     <title>Lingua & Culture — язык через культуру</title>
 
-```
 <style>
     :root {
         --bg: #f7f8fc;
@@ -322,6 +321,21 @@
         background: var(--accent);
     }
 
+    .card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .card-tags span {
+        padding: 5px 9px;
+        border-radius: 20px;
+        background: var(--accent-light);
+        color: var(--accent-dark);
+        font-size: 10px;
+        font-weight: 700;
+    }
+
     .floating-card {
         position: absolute;
         z-index: 3;
@@ -568,6 +582,21 @@
         font-size: 43px;
     }
 
+    .country-photo {
+        height: 150px;
+        margin-bottom: 16px;
+        border-radius: 15px;
+        overflow: hidden;
+        background: #e4e7f2;
+    }
+
+    .country-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
     .country h3 {
         margin-bottom: 3px;
         font-size: 19px;
@@ -609,12 +638,12 @@
         border: 1px solid var(--border);
         border-radius: 18px;
         background: white;
-        height: 42px;
-        flex: 0 0 42px;
     }
 
     .benefit-number {
+        flex: 0 0 42px;
         width: 42px;
+        height: 42px;
         display: grid;
         place-items: center;
         border-radius: 11px;
@@ -622,6 +651,11 @@
         color: var(--accent);
         font-size: 12px;
         font-weight: 800;
+    }
+
+    .benefit > div + div {
+        flex: 1;
+        min-width: 0;
     }
 
     .benefit h3 {
@@ -1012,6 +1046,10 @@
             width: 270px;
         }
 
+        .country-photo {
+            height: 130px;
+        }
+
         .footer-grid {
             grid-template-columns: 1fr;
         }
@@ -1032,7 +1070,6 @@
         }
     }
 </style>
-```
 
 </head>
 
@@ -1046,7 +1083,6 @@
                 <span>Lingua & Culture</span>
             </a>
 
-```
         <button
             class="menu-button"
             id="menuButton"
@@ -1065,13 +1101,11 @@
         </div>
     </nav>
 </div>
-```
 
 </header>
 
 <main>
 
-```
 <!-- Главный экран -->
 <section class="hero" id="home">
     <div class="container">
@@ -1125,8 +1159,8 @@
                         <div class="flag">🇯🇵</div>
 
                         <div class="progress-info">
-                            Ваш прогресс
-                            <strong>64%</strong>
+                            Формат
+                            <strong>Культура + язык</strong>
                         </div>
                     </div>
 
@@ -1136,8 +1170,10 @@
                         Основы общения и знакомство с культурой
                     </p>
 
-                    <div class="progress">
-                        <div class="progress-bar"></div>
+                    <div class="card-tags">
+                        <span>🎎 Традиции</span>
+                        <span>🎵 Музыка</span>
+                        <span>🍜 Кухня</span>
                     </div>
                 </div>
 
@@ -1177,8 +1213,8 @@
                 <div class="feature-icon">✍️</div>
                 <h3>Грамматика</h3>
                 <p>
-                    Понятные объяснения, примеры и небольшие
-                    практические задания.
+                    Понятные объяснения и примеры из живой речи —
+                    без зубрёжки правил.
                 </p>
             </article>
 
@@ -1251,8 +1287,9 @@
 
                     <div class="culture-quote">
                         「いただきます」<br>
-                        <strong>Не просто «приятного аппетита»</strong> —
-                        выражение благодарности перед едой.
+                        <strong>Произносят перед едой</strong> —
+                        благодарность за пищу и уважение
+                        к тем, благодаря кому она оказалась на столе.
                     </div>
                 </div>
 
@@ -1349,6 +1386,9 @@
         <div class="countries-grid">
 
             <article class="country" data-country="japan" tabindex="0">
+                <div class="country-photo">
+                    <img src="images/japan-tokyo.jpg" alt="Панорама Токио — столица Японии" loading="lazy">
+                </div>
                 <div class="country-flag">🇯🇵</div>
                 <h3>Япония</h3>
                 <div class="country-language">ЯПОНСКИЙ ЯЗЫК</div>
@@ -1360,6 +1400,9 @@
             </article>
 
             <article class="country" data-country="korea" tabindex="0">
+                <div class="country-photo">
+                    <img src="images/korea-seoul.jpg" alt="Город Сеул — столица Южной Кореи" loading="lazy">
+                </div>
                 <div class="country-flag">🇰🇷</div>
                 <h3>Южная Корея</h3>
                 <div class="country-language">КОРЕЙСКИЙ ЯЗЫК</div>
@@ -1371,6 +1414,9 @@
             </article>
 
             <article class="country" data-country="france" tabindex="0">
+                <div class="country-photo">
+                    <img src="images/france-paris.jpg" alt="Панорама Парижа — столицы Франции" loading="lazy">
+                </div>
                 <div class="country-flag">🇫🇷</div>
                 <h3>Франция</h3>
                 <div class="country-language">ФРАНЦУЗСКИЙ ЯЗЫК</div>
@@ -1382,6 +1428,9 @@
             </article>
 
             <article class="country" data-country="spain" tabindex="0">
+                <div class="country-photo">
+                    <img src="images/spain-barcelona.jpg" alt="Площадь Каталонии в Барселоне, Испания" loading="lazy">
+                </div>
                 <div class="country-flag">🇪🇸</div>
                 <h3>Испания</h3>
                 <div class="country-language">ИСПАНСКИЙ ЯЗЫК</div>
@@ -1406,9 +1455,9 @@
             <h2>Учиться можно проще</h2>
 
             <p>
-                Соединяем структурированное изучение языка
-                с интересом к миру, чтобы занятия не превращались
-                в бесконечное заучивание.
+                Lingua & Culture показывает язык внутри культуры:
+                через повседневную жизнь, традиции, музыку и кухню
+                стран, а не через бесконечное заучивание.
             </p>
         </div>
 
@@ -1417,10 +1466,11 @@
             <article class="benefit">
                 <div class="benefit-number">01</div>
                 <div>
-                    <h3>Всё обучение в одном месте</h3>
+                    <h3>Язык в культурном контексте</h3>
                     <p>
-                        Слова, грамматика, практика и культурные
-                        материалы собраны в единой системе.
+                        Слова и выражения объясняем через традиции,
+                        историю и обычаи страны — так язык
+                        запоминается осмысленно.
                     </p>
                 </div>
             </article>
@@ -1428,10 +1478,11 @@
             <article class="benefit">
                 <div class="benefit-number">02</div>
                 <div>
-                    <h3>Связь с реальной жизнью</h3>
+                    <h3>Повседневные ситуации</h3>
                     <p>
-                        Материалы основаны на ситуациях,
-                        с которыми можно столкнуться вне учебника.
+                        Транспорт, кафе, магазины и общение:
+                        говорим о реальной жизни, а не только
+                        по учебнику.
                     </p>
                 </div>
             </article>
@@ -1439,10 +1490,10 @@
             <article class="benefit">
                 <div class="benefit-number">03</div>
                 <div>
-                    <h3>Интерактивные задания</h3>
+                    <h3>Музыка и кухня в обучении</h3>
                     <p>
-                        Закрепляйте материал короткими упражнениями
-                        без перегрузки теорией.
+                        Разбираем язык через песни, названия блюд
+                        и ситуации за столом — культура в живом виде.
                     </p>
                 </div>
             </article>
@@ -1450,10 +1501,10 @@
             <article class="benefit">
                 <div class="benefit-number">04</div>
                 <div>
-                    <h3>Знакомство с культурой</h3>
+                    <h3>Теория сразу на практике</h3>
                     <p>
-                        Музыка, еда, история, праздники
-                        и особенности общения.
+                        Грамматика и новые слова — в примерах
+                        из живой речи, а не в отрыве от контекста.
                     </p>
                 </div>
             </article>
@@ -1461,10 +1512,10 @@
             <article class="benefit">
                 <div class="benefit-number">05</div>
                 <div>
-                    <h3>Удобный темп</h3>
+                    <h3>Доступно для начинающих</h3>
                     <p>
-                        Возвращайтесь к материалам тогда,
-                        когда удобно именно вам.
+                        Материалы подаются понятно и шаг за шагом —
+                        подойдут тем, кто начинает с нуля.
                     </p>
                 </div>
             </article>
@@ -1472,10 +1523,10 @@
             <article class="benefit">
                 <div class="benefit-number">06</div>
                 <div>
-                    <h3>Мотивация через интерес</h3>
+                    <h3>Язык через интерес</h3>
                     <p>
                         Когда язык связан с любимой культурой,
-                        учиться становится интереснее.
+                        учиться увлекательнее и легче.
                     </p>
                 </div>
             </article>
@@ -1510,7 +1561,6 @@
 
     </div>
 </section>
-```
 
 </main>
 
@@ -1519,7 +1569,6 @@
 <footer>
     <div class="container">
 
-```
     <div class="footer-grid">
 
         <div>
@@ -1576,7 +1625,6 @@
     </div>
 
 </div>
-```
 
 </footer>
 
@@ -1585,7 +1633,6 @@
 <div class="modal" id="modal" aria-hidden="true">
     <div class="modal-window">
 
-```
     <button
         class="close-modal"
         id="closeModal"
@@ -1606,7 +1653,6 @@
     <div class="modal-topics" id="modalTopics"></div>
 
 </div>
-```
 
 </div>
 
