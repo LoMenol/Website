@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lingua & Culture — изучение иностранных языков через культуру, традиции и повседневную жизнь.">
+    <title>Lingua & Culture — язык через культуру</title>
+
+<style>
+    :root {
+        --bg: #f7f8fc;
+        --white: #ffffff;
+        --text: #202536;
+        --muted: #737b8f;
+        --accent: #6672e8;
+        --accent-dark: #505dd4;
+        --accent-light: #eef0ff;
+        --border: #e5e7ef;
+        --shadow: 0 12px 35px rgba(38, 46, 78, 0.08);
+        --radius: 20px;
+        --max-width: 1160px;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Inter, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    button {
+        font: inherit;
+    }
+
+    .container {
+        width: min(92%, var(--max-width));
+        margin: 0 auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(247, 248, 252, 0.92);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(229, 231, 239, 0.8);
+    }
+
+    .navbar {
+        height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 11px;
+        color: white;
+        background: var(--accent);
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .nav-links a {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+        color: var(--accent);
+    }
+
+    .nav-button {
+        padding: 10px 17px;
+        border-radius: 11px;
+        color: white !important;
+        background: var(--accent);
+    }
+
+    .nav-button:hover {
+        background: var(--accent-dark) !important;
+    }
+
+    .menu-button {
+        display: none;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: white;
+        cursor: pointer;
+    }
+
+    /* ================= BUTTONS ================= */
+
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 12px 21px;
+        border-radius: 12px;
+        border: none;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .button-primary {
+        color: white;
+        background: var(--accent);
+        box-shadow: 0 9px 22px rgba(102, 114, 232, 0.22);
+    }
+
+    .button-primary:hover {
+        background: var(--accent-dark);
+        transform: translateY(-2px);
+    }
+
+    .button-secondary {
+        background: white;
+        border: 1px solid var(--border);
+    }
+
+    .button-secondary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+        min-height: 760px;
+        padding: 150px 0 90px;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 0.85fr;
+        align-items: center;
+        gap: 80px;
+    }
+
+    .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        margin-bottom: 20px;
+        border-radius: 50px;
+        background: var(--accent-light);
+        color: var(--accent-dark);
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .tag span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+    }
+
+    .hero h1 {
+        max-width: 650px;
+        margin-bottom: 24px;
+        font-size: clamp(42px, 5vw, 68px);
+        line-height: 1.05;
+        letter-spacing: -3px;
+    }
+
+    .hero h1 span {
+        color: var(--accent);
+    }
+
+    .hero-text {
+        max-width: 590px;
+        margin-bottom: 30px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .hero-note {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    /* Hero illustration */
+
+    .hero-visual {
+        min-height: 450px;
+        position: relative;
+        display: grid;
+        place-items: center;
+    }
+
+    .circle {
+        position: absolute;
+        width: 390px;
+        height: 390px;
+        border: 1px dashed #ccd1ed;
+        border-radius: 50%;
+    }
+
+    .learning-card {
+        position: relative;
+        z-index: 2;
+        width: min(100%, 350px);
+        padding: 30px;
+        border: 1px solid var(--border);
+        border-radius: 25px;
+        background: white;
+        box-shadow: 0 25px 65px rgba(42, 51, 86, 0.13);
+        transform: rotate(-2deg);
+    }
+
+    .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    .flag {
+        width: 68px;
+        height: 68px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        background: #fff0f2;
+        font-size: 38px;
+    }
+
+    .progress-info {
+        text-align: right;
+        color: var(--muted);
+        font-size: 11px;
+    }
+
+    .progress-info strong {
+        display: block;
+        color: var(--text);
+        font-size: 18px;
+    }
+
+    .learning-card h3 {
+        margin-bottom: 4px;
+        font-size: 25px;
+    }
+
+    .learning-card p {
+        margin-bottom: 23px;
+        color: var(--muted);
+        font-size: 13px;
+    }
+
+    .progress {
+        height: 8px;
+        overflow: hidden;
+        border-radius: 20px;
+        background: #edf0f6;
+    }
+
+    .progress-bar {
+        width: 64%;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--accent);
+    }
+
+    .card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .card-tags span {
+        padding: 5px 9px;
+        border-radius: 20px;
+        background: var(--accent-light);
+        color: var(--accent-dark);
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .floating-card {
+        position: absolute;
+        z-index: 3;
+        padding: 12px 15px;
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        background: white;
+        box-shadow: var(--shadow);
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .floating-one {
+        top: 55px;
+        right: 0;
+    }
+
+    .floating-two {
+        bottom: 55px;
+        left: 0;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+        padding: 100px 0;
+    }
+
+    .white-section {
+        background: white;
+    }
+
+    .section-heading {
+        max-width: 680px;
+        margin-bottom: 45px;
+    }
+
+    .section-heading.center {
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    .section-label {
+        margin-bottom: 9px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+        margin-bottom: 14px;
+        font-size: clamp(31px, 4vw, 46px);
+        line-height: 1.12;
+        letter-spacing: -2px;
+    }
+
+    .section-heading p {
+        color: var(--muted);
+        font-size: 16px;
+    }
+
+    /* ================= LEARNING ================= */
+
+    .learning-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .feature {
+        padding: 27px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: white;
+        transition: 0.25s;
+    }
+
+    .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 20px;
+        border-radius: 14px;
+        background: var(--accent-light);
+        font-size: 23px;
+    }
+
+    .feature h3 {
+        margin-bottom: 7px;
+        font-size: 17px;
+    }
+
+    .feature p {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    /* ================= CULTURE ================= */
+
+    .culture-layout {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: center;
+        gap: 80px;
+    }
+
+    .culture-illustration {
+        min-height: 450px;
+        display: grid;
+        place-items: center;
+        position: relative;
+    }
+
+    .culture-card {
+        width: 330px;
+        min-height: 380px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--border);
+        border-radius: 27px;
+        background: linear-gradient(145deg, white, #f0f2ff);
+        box-shadow: var(--shadow);
+    }
+
+    .culture-card .big-flag {
+        font-size: 60px;
+    }
+
+    .culture-card h3 {
+        margin-bottom: 5px;
+        font-size: 29px;
+    }
+
+    .culture-card p {
+        color: var(--muted);
+        font-size: 13px;
+    }
+
+    .culture-quote {
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(255,255,255,0.8);
+        font-size: 12px;
+    }
+
+    .culture-bubble {
+        position: absolute;
+        padding: 12px 16px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: white;
+        box-shadow: var(--shadow);
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .bubble-one {
+        top: 35px;
+        right: 0;
+    }
+
+    .bubble-two {
+        bottom: 40px;
+        left: 0;
+    }
+
+    .culture-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .culture-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        background: white;
+    }
+
+    .culture-item-icon {
+        width: 37px;
+        height: 37px;
+        flex: 0 0 37px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: var(--bg);
+    }
+
+    .culture-item strong {
+        display: block;
+        font-size: 13px;
+    }
+
+    .culture-item span {
+        color: var(--muted);
+        font-size: 11px;
+    }
+
+    /* ================= COUNTRIES ================= */
+
+    .countries-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 17px;
+    }
+
+    .country {
+        min-height: 280px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--bg);
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .country:hover {
+        background: white;
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+    }
+
+    .country-flag {
+        margin-bottom: 18px;
+        font-size: 43px;
+    }
+
+    .country-photo {
+        height: 150px;
+        margin-bottom: 16px;
+        border-radius: 15px;
+        overflow: hidden;
+        background: #e4e7f2;
+    }
+
+    .country-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .country h3 {
+        margin-bottom: 3px;
+        font-size: 19px;
+    }
+
+    .country-language {
+        margin-bottom: 10px;
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 800;
+    }
+
+    .country p {
+        flex: 1;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .country-more {
+        margin-top: 15px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    /* ================= BENEFITS ================= */
+
+    .benefits {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 17px;
+    }
+
+    .benefit {
+        display: flex;
+        gap: 17px;
+        padding: 23px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: white;
+    }
+
+    .benefit-number {
+        flex: 0 0 42px;
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 11px;
+        background: var(--accent-light);
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    .benefit > div + div {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .benefit h3 {
+        margin-bottom: 4px;
+        font-size: 15px;
+    }
+
+    .benefit p {
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta-section {
+        padding-top: 30px;
+        padding-bottom: 100px;
+    }
+
+    .cta {
+        padding: 70px 30px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 28px;
+        color: white;
+        background: linear-gradient(135deg, #5965dc, #7a85ee);
+        text-align: center;
+        box-shadow: 0 25px 60px rgba(89, 101, 220, 0.22);
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        max-width: 650px;
+        margin: auto;
+    }
+
+    .cta h2 {
+        margin-bottom: 13px;
+        font-size: clamp(30px, 4vw, 45px);
+        line-height: 1.1;
+        letter-spacing: -2px;
+    }
+
+    .cta p {
+        margin-bottom: 25px;
+        color: rgba(255,255,255,0.82);
+        font-size: 15px;
+    }
+
+    .cta .button {
+        color: var(--accent-dark);
+        background: white;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+        padding: 55px 0 25px;
+        color: white;
+        background: #202536;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 45px;
+    }
+
+    footer .logo {
+        margin-bottom: 13px;
+    }
+
+    .footer-description {
+        max-width: 300px;
+        color: #aab0c0;
+        font-size: 12px;
+    }
+
+    footer h3 {
+        margin-bottom: 14px;
+        font-size: 13px;
+    }
+
+    .footer-links {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+    }
+
+    .footer-links a {
+        color: #aab0c0;
+        font-size: 12px;
+    }
+
+    .footer-links a:hover {
+        color: white;
+    }
+
+    .footer-bottom {
+        padding-top: 22px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        color: #858b9d;
+        font-size: 11px;
+    }
+
+    /* ================= MODAL ================= */
+
+    .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(20, 25, 40, 0.55);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal.active {
+        display: flex;
+    }
+
+    .modal-window {
+        width: min(100%, 480px);
+        padding: 32px;
+        position: relative;
+        border-radius: 22px;
+        background: white;
+        box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 13px;
+        right: 13px;
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 9px;
+        background: var(--bg);
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .modal-icon {
+        margin-bottom: 12px;
+        font-size: 48px;
+    }
+
+    .modal-window h2 {
+        margin-bottom: 7px;
+        font-size: 27px;
+    }
+
+    .modal-window p {
+        margin-bottom: 20px;
+        color: var(--muted);
+        font-size: 13px;
+    }
+
+    .modal-topics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+
+    .modal-topic {
+        padding: 6px 10px;
+        border-radius: 30px;
+        color: var(--accent-dark);
+        background: var(--accent-light);
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+        .nav-links {
+            gap: 16px;
+        }
+
+        .hero-content {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        .hero {
+            padding-top: 130px;
+        }
+
+        .hero-visual {
+            min-height: 400px;
+        }
+
+        .learning-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .countries-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .culture-layout {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1.5fr 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 720px) {
+        .container {
+            width: min(92%, 600px);
+        }
+
+        .navbar {
+            height: 68px;
+        }
+
+        .menu-button {
+            display: block;
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 77px;
+            left: 4%;
+            right: 4%;
+            display: none;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 3px;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links a {
+            padding: 12px;
+        }
+
+        .nav-button {
+            text-align: center;
+        }
+
+        .hero {
+            min-height: auto;
+            padding: 115px 0 70px;
+        }
+
+        .hero h1 {
+            letter-spacing: -2px;
+        }
+
+        .hero-text {
+            font-size: 16px;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+        }
+
+        .hero-buttons .button {
+            width: 100%;
+        }
+
+        .hero-visual {
+            min-height: 360px;
+        }
+
+        .circle {
+            width: 285px;
+            height: 285px;
+        }
+
+        .learning-card {
+            width: 300px;
+        }
+
+        .floating-one {
+            right: -2px;
+            top: 30px;
+        }
+
+        .floating-two {
+            left: -2px;
+            bottom: 25px;
+        }
+
+        section {
+            padding: 72px 0;
+        }
+
+        .learning-grid,
+        .countries-grid,
+        .benefits {
+            grid-template-columns: 1fr;
+        }
+
+        .culture-list {
+            grid-template-columns: 1fr;
+        }
+
+        .culture-illustration {
+            min-height: 390px;
+        }
+
+        .culture-card {
+            width: 300px;
+            min-height: 350px;
+        }
+
+        .bubble-one {
+            right: 0;
+        }
+
+        .bubble-two {
+            left: 0;
+        }
+
+        .cta-section {
+            padding-top: 15px;
+            padding-bottom: 70px;
+        }
+
+        .cta {
+            padding: 55px 22px;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-brand {
+            grid-column: 1 / -1;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .logo {
+            font-size: 17px;
+        }
+
+        .logo-icon {
+            width: 34px;
+            height: 34px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        .learning-card {
+            width: 270px;
+            padding: 22px;
+        }
+
+        .circle {
+            width: 250px;
+            height: 250px;
+        }
+
+        .floating-card {
+            padding: 9px 11px;
+            font-size: 10px;
+        }
+
+        .culture-card {
+            width: 270px;
+        }
+
+        .country-photo {
+            height: 130px;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-brand {
+            grid-column: auto;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        * {
+            transition: none !important;
+            animation: none !important;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                <span class="logo-icon">文</span>
+                <span>Lingua & Culture</span>
+            </a>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#learning">Обучение</a>
+            <a href="#culture">Культура</a>
+            <a href="#countries">Направления</a>
+            <a href="#benefits">Преимущества</a>
+            <a href="#start" class="nav-button">Начать обучение</a>
+        </div>
+    </nav>
+</div>
+
+</header>
+
+<main>
+
+<!-- Главный экран -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+
+            <div>
+                <div class="tag">
+                    <span></span>
+                    Язык + культура в одном месте
+                </div>
+
+                <h1>
+                    Учите язык.<br>
+                    <span>Понимайте культуру.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Изучайте иностранный язык через традиции, музыку,
+                    историю и повседневную жизнь людей, которые на нём говорят.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#start" class="button button-primary">
+                        Начать обучение →
+                    </a>
+
+                    <a href="#culture" class="button button-secondary">
+                        Узнать больше
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    Небольшие занятия · Практика · Реальный культурный контекст
+                </div>
+            </div>
+
+            <div class="hero-visual">
+
+                <div class="circle"></div>
+
+                <div class="floating-card floating-one">
+                    🎵 Музыка и язык
+                </div>
+
+                <div class="floating-card floating-two">
+                    🍜 Культура каждый день
+                </div>
+
+                <div class="learning-card">
+                    <div class="card-top">
+                        <div class="flag">🇯🇵</div>
+
+                        <div class="progress-info">
+                            Формат
+                            <strong>Культура + язык</strong>
+                        </div>
+                    </div>
+
+                    <h3>Японский язык</h3>
+
+                    <p>
+                        Основы общения и знакомство с культурой
+                    </p>
+
+                    <div class="card-tags">
+                        <span>🎎 Традиции</span>
+                        <span>🎵 Музыка</span>
+                        <span>🍜 Кухня</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Что изучите -->
+<section class="white-section" id="learning">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="section-label">Что вы изучите</div>
+
+            <h2>Больше, чем просто иностранный язык</h2>
+
+            <p>
+                Выстраивайте целостное понимание языка —
+                от первых слов и грамматики до естественного общения
+                и культурного контекста.
+            </p>
+        </div>
+
+        <div class="learning-grid">
+
+            <article class="feature">
+                <div class="feature-icon">📚</div>
+                <h3>Язык и словарный запас</h3>
+                <p>
+                    Полезные слова и выражения, которые пригодятся
+                    в реальных ситуациях.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">✍️</div>
+                <h3>Грамматика</h3>
+                <p>
+                    Понятные объяснения и примеры из живой речи —
+                    без зубрёжки правил.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">💬</div>
+                <h3>Разговорная практика</h3>
+                <p>
+                    Произношение, понимание речи и повседневные
+                    диалоги без перегрузки теорией.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">🎎</div>
+                <h3>Культура и традиции</h3>
+                <p>
+                    Понимание культурных норм, традиций
+                    и особенностей поведения.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">🏛️</div>
+                <h3>История страны</h3>
+                <p>
+                    Важные события, которые сформировали
+                    современную культуру.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">☕</div>
+                <h3>Повседневная жизнь</h3>
+                <p>
+                    Транспорт, еда, учёба, работа и общение —
+                    язык в контексте настоящей жизни.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- Культура -->
+<section id="culture">
+    <div class="container">
+
+        <div class="culture-layout">
+
+            <div class="culture-illustration">
+
+                <div class="culture-bubble bubble-one">
+                    🎧 Музыка
+                </div>
+
+                <div class="culture-bubble bubble-two">
+                    🍱 Традиции
+                </div>
+
+                <div class="culture-card">
+                    <div class="big-flag">🇯🇵</div>
+
+                    <div>
+                        <h3>Япония</h3>
+                        <p>
+                            Учимся замечать связь между словами,
+                            поведением, историей и культурой.
+                        </p>
+                    </div>
+
+                    <div class="culture-quote">
+                        「いただきます」<br>
+                        <strong>Произносят перед едой</strong> —
+                        благодарность за пищу и уважение
+                        к тем, благодаря кому она оказалась на столе.
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="section-heading">
+                    <div class="section-label">Язык через культуру</div>
+
+                    <h2>
+                        Понимать слова —
+                        значит понимать контекст
+                    </h2>
+
+                    <p>
+                        Одно и то же выражение может раскрывать традиции,
+                        ценности и образ жизни целой страны.
+                        Поэтому мы изучаем язык вместе с культурным контекстом.
+                    </p>
+                </div>
+
+                <div class="culture-list">
+
+                    <div class="culture-item">
+                        <div class="culture-item-icon">🎎</div>
+                        <div>
+                            <strong>Традиции</strong>
+                            <span>Обряды и культурные привычки</span>
+                        </div>
+                    </div>
+
+                    <div class="culture-item">
+                        <div class="culture-item-icon">🍜</div>
+                        <div>
+                            <strong>Национальная кухня</strong>
+                            <span>Еда и выражения вокруг неё</span>
+                        </div>
+                    </div>
+
+                    <div class="culture-item">
+                        <div class="culture-item-icon">🎵</div>
+                        <div>
+                            <strong>Музыка</strong>
+                            <span>Песни как способ услышать язык</span>
+                        </div>
+                    </div>
+
+                    <div class="culture-item">
+                        <div class="culture-item-icon">🎊</div>
+                        <div>
+                            <strong>Праздники</strong>
+                            <span>История и современное значение</span>
+                        </div>
+                    </div>
+
+                    <div class="culture-item">
+                        <div class="culture-item-icon">🤝</div>
+                        <div>
+                            <strong>Общение</strong>
+                            <span>Этикет, жесты и речевые нюансы</span>
+                        </div>
+                    </div>
+
+                    <div class="culture-item">
+                        <div class="culture-item-icon">💡</div>
+                        <div>
+                            <strong>Интересные факты</strong>
+                            <span>Небольшие открытия вне учебника</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Страны -->
+<section class="white-section" id="countries">
+    <div class="container">
+
+        <div class="section-heading center">
+            <div class="section-label">Направления</div>
+
+            <h2>Выберите свою культуру</h2>
+
+            <p>
+                Начните с языка, который вам интересен,
+                и постепенно откройте для себя страну за его пределами.
+            </p>
+        </div>
+
+        <div class="countries-grid">
+
+            <article class="country" data-country="japan" tabindex="0">
+                <div class="country-photo">
+                    <img src="images/korea-seoul.jpg" alt="Город Сеул — столица Южной Кореи" loading="lazy">
+                </div>
+                <div class="country-flag">🇯🇵</div>
+                <h3>Япония</h3>
+                <div class="country-language">ЯПОНСКИЙ ЯЗЫК</div>
+                <p>
+                    Язык, традиции, современная культура,
+                    повседневная жизнь и особенности общения.
+                </p>
+                <div class="country-more">Подробнее →</div>
+            </article>
+
+            <article class="country" data-country="korea" tabindex="0">
+                <div class="country-photo">
+                    <img src="images/france-paris.jpg" alt="Панорама Парижа — столицы Франции" loading="lazy">
+                </div>
+                <div class="country-flag">🇰🇷</div>
+                <h3>Южная Корея</h3>
+                <div class="country-language">КОРЕЙСКИЙ ЯЗЫК</div>
+                <p>
+                    История, современная культура, музыка,
+                    кухня и социальные нормы.
+                </p>
+                <div class="country-more">Подробнее →</div>
+            </article>
+
+            <article class="country" data-country="france" tabindex="0">
+                <div class="country-photo">
+                    <img src="images/spain-barcelona.jpg" alt="Площадь Каталонии в Барселоне, Испания" loading="lazy">
+                </div>
+                <div class="country-flag">🇫🇷</div>
+                <h3>Франция</h3>
+                <div class="country-language">ФРАНЦУЗСКИЙ ЯЗЫК</div>
+                <p>
+                    Кухня, искусство, история, повседневная речь
+                    и культурные особенности.
+                </p>
+                <div class="country-more">Подробнее →</div>
+            </article>
+
+            <article class="country" data-country="spain" tabindex="0">
+                <div class="country-photo">
+                    <img src="images/japan-tokyo.jpg" alt="Панорама Токио — столица Японии" loading="lazy">
+                </div>
+                <div class="country-flag">🇪🇸</div>
+                <h3>Испания</h3>
+                <div class="country-language">ИСПАНСКИЙ ЯЗЫК</div>
+                <p>
+                    Музыка, праздники, региональные традиции,
+                    кухня и живой язык.
+                </p>
+                <div class="country-more">Подробнее →</div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- Преимущества -->
+<section id="benefits">
+    <div class="container">
+
+        <div class="section-heading center">
+            <div class="section-label">Почему мы</div>
+
+            <h2>Учиться можно проще</h2>
+
+            <p>
+                Lingua & Culture показывает язык внутри культуры:
+                через повседневную жизнь, традиции, музыку и кухню
+                стран, а не через бесконечное заучивание.
+            </p>
+        </div>
+
+        <div class="benefits">
+
+            <article class="benefit">
+                <div class="benefit-number">01</div>
+                <div>
+                    <h3>Язык в культурном контексте</h3>
+                    <p>
+                        Слова и выражения объясняем через традиции,
+                        историю и обычаи страны — так язык
+                        запоминается осмысленно.
+                    </p>
+                </div>
+            </article>
+
+            <article class="benefit">
+                <div class="benefit-number">02</div>
+                <div>
+                    <h3>Повседневные ситуации</h3>
+                    <p>
+                        Транспорт, кафе, магазины и общение:
+                        говорим о реальной жизни, а не только
+                        по учебнику.
+                    </p>
+                </div>
+            </article>
+
+            <article class="benefit">
+                <div class="benefit-number">03</div>
+                <div>
+                    <h3>Музыка и кухня в обучении</h3>
+                    <p>
+                        Разбираем язык через песни, названия блюд
+                        и ситуации за столом — культура в живом виде.
+                    </p>
+                </div>
+            </article>
+
+            <article class="benefit">
+                <div class="benefit-number">04</div>
+                <div>
+                    <h3>Теория сразу на практике</h3>
+                    <p>
+                        Грамматика и новые слова — в примерах
+                        из живой речи, а не в отрыве от контекста.
+                    </p>
+                </div>
+            </article>
+
+            <article class="benefit">
+                <div class="benefit-number">05</div>
+                <div>
+                    <h3>Доступно для начинающих</h3>
+                    <p>
+                        Материалы подаются понятно и шаг за шагом —
+                        подойдут тем, кто начинает с нуля.
+                    </p>
+                </div>
+            </article>
+
+            <article class="benefit">
+                <div class="benefit-number">06</div>
+                <div>
+                    <h3>Язык через интерес</h3>
+                    <p>
+                        Когда язык связан с любимой культурой,
+                        учиться увлекательнее и легче.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="start">
+    <div class="container">
+
+        <div class="cta">
+            <div class="cta-content">
+
+                <h2>
+                    Откройте новый язык
+                    и новую культуру
+                </h2>
+
+                <p>
+                    Сделайте первый шаг к языку, который поможет
+                    не просто говорить, а лучше понимать людей и их мир.
+                </p>
+
+                <button class="button" id="startButton">
+                    Начать обучение →
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- Подвал -->
+
+<footer>
+    <div class="container">
+
+    <div class="footer-grid">
+
+        <div>
+            <a href="#home" class="logo">
+                <span class="logo-icon">文</span>
+                <span>Lingua & Culture</span>
+            </a>
+
+            <p class="footer-description">
+                Образовательный проект, который помогает
+                изучать иностранные языки через культуру
+                и реальную жизнь.
+            </p>
+        </div>
+
+        <div>
+            <h3>Проект</h3>
+
+            <ul class="footer-links">
+                <li><a href="#learning">Обучение</a></li>
+                <li><a href="#culture">Культура</a></li>
+                <li><a href="#countries">Направления</a></li>
+                <li><a href="#benefits">Преимущества</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Направления</h3>
+
+            <ul class="footer-links">
+                <li><a href="#countries">🇯🇵 Япония</a></li>
+                <li><a href="#countries">🇰🇷 Южная Корея</a></li>
+                <li><a href="#countries">🇫🇷 Франция</a></li>
+                <li><a href="#countries">🇪🇸 Испания</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Мы в сети</h3>
+
+            <ul class="footer-links">
+                <li><a href="#start">Telegram</a></li>
+                <li><a href="#start">VK</a></li>
+                <li><a href="#start">YouTube</a></li>
+                <li><a href="#start">Сообщество</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Lingua & Culture</span>
+        <span>Учимся понимать мир.</span>
+    </div>
+
+</div>
+
+</footer>
+
+<!-- Модальное окно -->
+
+<div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-window">
+
+    <button
+        class="close-modal"
+        id="closeModal"
+        aria-label="Закрыть"
+    >
+        ×
+    </button>
+
+    <div class="modal-icon" id="modalIcon">🇯🇵</div>
+
+    <h2 id="modalTitle">Япония</h2>
+
+    <p id="modalText">
+        Изучайте японский язык через повседневные ситуации,
+        историю, традиции, музыку и современную культуру.
+    </p>
+
+    <div class="modal-topics" id="modalTopics"></div>
+
+</div>
+
+</div>
+
+<script>
+    /* ================= МОБИЛЬНОЕ МЕНЮ ================= */
+
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+        const opened = navLinks.classList.toggle("active");
+
+        menuButton.setAttribute("aria-expanded", opened);
+        menuButton.textContent = opened ? "×" : "☰";
+        menuButton.setAttribute(
+            "aria-label",
+            opened ? "Закрыть меню" : "Открыть меню"
+        );
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.textContent = "☰";
+            menuButton.setAttribute("aria-label", "Открыть меню");
+        });
+    });
+
+    /* ================= ДАННЫЕ СТРАН ================= */
+
+    const countries = {
+        japan: {
+            icon: "🇯🇵",
+            title: "Япония",
+            text: "Изучайте японский язык через повседневные ситуации, историю, традиции, музыку, кухню и современные особенности японского общества.",
+            topics: [
+                "Японский язык",
+                "Традиции",
+                "Музыка",
+                "Кухня",
+                "Этикет"
+            ]
+        },
+
+        korea: {
+            icon: "🇰🇷",
+            title: "Южная Корея",
+            text: "Познакомьтесь с корейским языком и культурой через историю, музыку, кухню, повседневное общение и социальные нормы.",
+            topics: [
+                "Корейский язык",
+                "K-pop",
+                "История",
+                "Кухня",
+                "Общение"
+            ]
+        },
+
+        france: {
+            icon: "🇫🇷",
+            title: "Франция",
+            text: "Откройте французский язык через литературу, искусство, кухню, историю и особенности повседневной коммуникации.",
+            topics: [
+                "Французский язык",
+                "Искусство",
+                "Кухня",
+                "История",
+                "Общение"
+            ]
+        },
+
+        spain: {
+            icon: "🇪🇸",
+            title: "Испания",
+            text: "Изучайте испанский через музыку, праздники, региональные традиции, кухню и живые ситуации повседневной жизни.",
+            topics: [
+                "Испанский язык",
+                "Музыка",
+                "Праздники",
+                "Кухня",
+                "Традиции"
+            ]
+        }
+    };
+
+    /* ================= МОДАЛЬНОЕ ОКНО ================= */
+
+    const modal = document.getElementById("modal");
+    const closeModal = document.getElementById("closeModal");
+    const modalIcon = document.getElementById("modalIcon");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalText = document.getElementById("modalText");
+    const modalTopics = document.getElementById("modalTopics");
+
+    function openModal(countryId) {
+        const country = countries[countryId];
+
+        if (!country) return;
+
+        modalIcon.textContent = country.icon;
+        modalTitle.textContent = country.title;
+        modalText.textContent = country.text;
+
+        modalTopics.innerHTML = "";
+
+        country.topics.forEach(topic => {
+            const element = document.createElement("span");
+            element.className = "modal-topic";
+            element.textContent = topic;
+            modalTopics.appendChild(element);
+        });
+
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        closeModal.focus();
+    }
+
+    function hideModal() {
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll(".country").forEach(card => {
+        card.addEventListener("click", () => {
+            openModal(card.dataset.country);
+        });
+
+        card.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openModal(card.dataset.country);
+            }
+        });
+    });
+
+    closeModal.addEventListener("click", hideModal);
+
+    modal.addEventListener("click", event => {
+        if (event.target === modal) {
+            hideModal();
+        }
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            hideModal();
+        }
+    });
+
+    /* ================= КНОПКА НАЧАЛА ================= */
+
+    document.getElementById("startButton").addEventListener("click", () => {
+        document.getElementById("countries").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+
+    /* ================= ЗАКРЫТИЕ МЕНЮ ПРИ ИЗМЕНЕНИИ РАЗМЕРА ================= */
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 720) {
+            navLinks.classList.remove("active");
+            menuButton.textContent = "☰";
+            menuButton.setAttribute("aria-expanded", "false");
+        }
+    });
+</script>
+
+</body>
+</html>
